@@ -9,6 +9,7 @@ RUN apt-get update && \
         libgl1 \
         libglib2.0-0 && \
     rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends libsm6 libxext6 && rm -rf /var/lib/apt/lists/*
 
 # 2️⃣ Upgrade pip (helps with newer wheels)
 RUN pip install --upgrade pip setuptools wheel
@@ -22,8 +23,9 @@ COPY requirements.txt .
 # 5️⃣ Install Python deps (including moviepy)
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 6️⃣ Re‑install moviepy *after* system libs are present
-RUN pip install --no-cache-dir moviepy==2.2.1
+COPY test_moviepy.py .
+RUN python test_moviepy.py
+
 
 # 7️⃣ Copy the rest of the source code
 COPY . .
