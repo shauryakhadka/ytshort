@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Shorts Generator Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>AI‑Generated YouTube Shorts</h1>
+  <form id="genForm">
+    <label for="prompt">Prompt / Idea:</label><br />
+    <textarea id="prompt" name="prompt" rows="3" required></textarea><br />
+
+    <label for="voice">Voice (language code):</label><br />
+    <select id="voice" name="voice">
+      <option value="en" selected>English</option>
+      <option value="es">Spanish</option>
+      <option value="fr">French</option>
+      <option value="de">German</option>
+    </select><br />
+
+    <label for="caption">Caption style:</label><br />
+    <select id="caption" name="caption_style">
+      <option value="none" selected>None</option>
+      <option value="simple">Simple</option>
+      <option value="fancy">Fancy</option>
+    </select><br />
+
+    <label>
+      <input type="checkbox" id="premium" name="premium" /> Premium account (higher quota)
+    </label><br /><br />
+
+    <button type="submit">Generate Short</button>
+  </form>
+
+  <section id="result" style="display:none; margin-top:20px;">
+    <h2>Result</h2>
+    <p><strong>Generated script:</strong></p>
+    <pre id="script"></pre>
+    <video id="video" controls style="max-width:100%;"></video>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

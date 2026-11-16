@@ -100,3 +100,5 @@ async def generate(request: GenerationRequest, background: BackgroundTasks):
 # Serve static files (videos) from the repo root
 from fastapi.staticfiles import StaticFiles
 app.mount("/videos", StaticFiles(directory="."), name="videos")
+# Serve UI static assets (HTML/CSS/JS) at the root path
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
