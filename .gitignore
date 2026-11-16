@@ -1,0 +1,9 @@
+# .gitignore
+__pycache__/
+*.py[cod]
+venv/
+.env
+usage.json
+*.mp3
+*.mp4
+*.log
